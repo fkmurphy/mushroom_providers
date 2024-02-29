@@ -207,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
   map.attributionControl.setPrefix(false);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
+    fullscreenControl: true,
     attribution:
       'Gracias Leaflet y <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>! - Creado por Julian Murphy',
   }).addTo(map);
