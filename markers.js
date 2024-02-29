@@ -54,6 +54,8 @@ function getMarker(data, map) {
     whatsapp: hasWhatsapp,
     shipping_all_country: hasShippingAllCountry,
     has_physical_shop: hasPhysicalShop,
+    categories,
+    youtube,
     lat,
     lng,
   } = data;
@@ -89,10 +91,13 @@ function getMarker(data, map) {
   popupContent += twitter
     ? `<li><a href="https://x.com/' + ${twitter}'" target="_blank">Twitter</a></li>`
     : "";
+  popupContent += youtube
+    ? `<li><a href="https://youtube.com/' + ${youtube}'" target="_blank">Canal de Youtube</a></li>`
+    : "";
   popupContent += instagram
     ? `<li><a href="${instagram}" target="_blank">Instagram @${instagram}</a></li></ul>`
     : "</ul>";
-      
+
   popupContent += website
     ? `<p><strong>Sitio Web:</strong> <a href="${website}" target="_blank">${website}</a></p>`
     : "";
@@ -104,6 +109,7 @@ function getMarker(data, map) {
       <p><strong>Tiene Tienda Física:</strong> ${
         hasPhysicalShop ? "Sí" : "No"
       }</p>
+      <p><strong>Palabras relacionadas:</strong> ${categories}</p>
     </div>
   `;
 
