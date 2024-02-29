@@ -90,13 +90,13 @@ function getMarker(data, map) {
     ? `<li><a href="https://x.com/' + ${twitter}'" target="_blank">Twitter</a></li>`
     : "";
   popupContent += instagram
-    ? `<li><a href="${instagram}" target="_blank">Instagram @${instagram}</a></li>`
-    : "";
+    ? `<li><a href="${instagram}" target="_blank">Instagram @${instagram}</a></li></ul>`
+    : "</ul>";
+      
   popupContent += website
     ? `<p><strong>Sitio Web:</strong> <a href="${website}" target="_blank">${website}</a></p>`
     : "";
   popupContent += `
-      </ul>
       <p><strong>¿Tiene WhatsApp?:</strong> ${hasWhatsapp ? "Sí" : "No"}</p>
       <p><strong>Envío a todos los países:</strong> ${
         hasShippingAllCountry ? "Sí" : "No"
