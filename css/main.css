@@ -19,10 +19,11 @@ body {
   padding: 4px;
 }
 .about-button > a {
+  color: #7a7f7b;
   text-decoration: none;
 }
 .about-button > a:hover {
-  color: blue;
+  color: #1f8c35;
 }
 .filter-control {
   width: 60%;
