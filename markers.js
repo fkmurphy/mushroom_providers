@@ -243,7 +243,7 @@ async function processData(map, results) {
 }
 
 function goToProcess(map) {
-  Papa.parse("/providers.csv", {
+  Papa.parse(`${URL_GSHEET_DOC}/gviz/tq?tqx=out:csv&sheet=`, {
     download: true,
     header: true,
     complete: (results) => processData(map, results.data),
