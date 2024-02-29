@@ -86,16 +86,16 @@ function getMarker(data, map) {
     ? `<li><a href="https://www.facebook.com/${facebook}" target="_blank">Facebook</a></li>`
     : ``;
   popupContent += linkedin
-    ? `<li><a href="${linkedin}" target="_blank">LinkedIn</a></li>`
+    ? `<li><a href="https://linkedin.com/${linkedin}" target="_blank">LinkedIn</a></li>`
     : "";
   popupContent += twitter
-    ? `<li><a href="https://x.com/' + ${twitter}'" target="_blank">Twitter</a></li>`
+    ? `<li><a href="https://x.com/${twitter}" target="_blank">Twitter</a></li>`
     : "";
   popupContent += youtube
     ? `<li><a href="https://youtube.com/' + ${youtube}'" target="_blank">Canal de Youtube</a></li>`
     : "";
   popupContent += instagram
-    ? `<li><a href="${instagram}" target="_blank">Instagram @${instagram}</a></li></ul>`
+    ? `<li><a href="https://instagram.com/${instagram}" target="_blank">Instagram @${instagram}</a></li></ul>`
     : "</ul>";
 
   popupContent += website
