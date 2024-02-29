@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     maxZoom: 19,
     fullscreenControl: true,
     attribution:
-      'Gracias Leaflet y <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>! - Creado por Julian Murphy',
+      'Gracias Leaflet y <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>! - <a href="https://github.com/fkmurphy/mushroom_providers" target="_blank">Creado por Julian Murphy</a>',
   }).addTo(map);
   goToProcess(map);
 });
