@@ -208,6 +208,22 @@ function processMarkers(map, results) {
   });
 }
 
+function addAbout(map) {
+  var filterLayer = L.Control.extend({
+    onAdd: function (_map) {
+      var div = L.DomUtil.create("div", "leaflet-control-layers about-button");
+      div.innerHTML += `<a href="#" id="aboutButton"><strong>Sobre hongos.julianmurphy.ar</strong></a>`;
+      return div;
+    },
+  });
+
+  new filterLayer().addTo(map);
+
+  document.getElementById("aboutButton").addEventListener("click", () => {
+    MicroModal.show("about");
+  });
+}
+
 /**
  * execute once, prepare data
  */
@@ -223,6 +239,7 @@ async function processData(map, results) {
   currentData = fetchedData;
   processMarkers(map, fetchedData);
   addFilters(map, fetchedData);
+  addAbout(map);
 }
 
 function goToProcess(map) {
