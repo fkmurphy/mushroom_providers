@@ -1,3 +1,4 @@
+import { PUBLIC_URL_GSHEET_DOC } from "./env.js";
 const mushroomIcon = `<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#141b34" stroke-width="1.5"><path d="m10.2762 13c1.7238 3-1.59775 4.3826-1.25054 6.2747.40638 2.2144 2.71374 3.3668 4.45384 2.3551 2.4672-1.4345 1.4153-6.8269.4322-8.6102" stroke-linecap="round"/><path d="m12.0153 2c-4.6724 0-8.47694 2.64819-8.99542 7.03138-.72522 6.13092 18.63482 4.43992 17.96302-.21245-.6145-4.25617-4.3711-6.81893-8.9676-6.81893z"/><path d="m16 6c1 0 2 1 2 2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
 `;
 const svgIcon = L.divIcon({
@@ -243,6 +244,9 @@ async function processData(map, results) {
 }
 
 function goToProcess(map) {
+  if (!PUBLIC_URL_GSHEET_DOC) {
+    throw new Error("");
+  }
   Papa.parse(`${PUBLIC_URL_GSHEET_DOC}/gviz/tq?tqx=out:csv&sheet=`, {
     download: true,
     header: true,
