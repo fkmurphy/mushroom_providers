@@ -3,6 +3,7 @@
 \**************************/
 
 .modal {
+  font-size: 14px;
   display: none;
   font-family:
     -apple-system,
@@ -17,6 +18,10 @@
     segoe ui,
     arial,
     sans-serif;
+}
+
+.modal__footer {
+  font-size: 0.95em;
 }
 
 .modal__overlay {
@@ -158,7 +163,7 @@
 }
 
 .micromodal-slide.is-open {
-  display: relative;
+  display: block;
 }
 
 .micromodal-slide[aria-hidden="false"] .modal__overlay {

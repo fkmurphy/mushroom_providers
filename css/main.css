@@ -17,14 +17,12 @@ body {
 .about-button {
   margin: 2px;
   padding: 4px;
-  color: #525252;
 }
 .about-button > a {
-  color: black;
   text-decoration: none;
 }
 .about-button > a:hover {
-  color: #3d8048;
+  color: blue;
 }
 .filter-control {
   width: 60%;
