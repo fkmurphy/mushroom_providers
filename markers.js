@@ -57,21 +57,46 @@ function getMarker(data, map) {
     lat,
     lng,
   } = data;
-  const popupContent = `
+  let popupContent = `
     <div>
       <h3>${name}</h3>
-      <p><strong>Dirección:</strong> ${address}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Teléfono:</strong> ${phone}</p>
-      <p><strong>Descripción:</strong> ${description}</p>
-      <p><strong>Redes Sociales:</strong></p>
-      <ul>
-        <li><a href="${facebook}" target="_blank">Facebook</a></li>
-        <li><a href="${linkedin}" target="_blank">LinkedIn</a></li>
-        <li><a href="${twitter}" target="_blank">Twitter</a></li>
-        <li><a href="${instagram}" target="_blank">Instagram</a></li>
+  `;
+  popupContent += address
+    ? `
+      <p><strong>Dirección:</strong> ${address}</p>`
+    : "";
+  popupContent += email
+    ? `
+      <p><strong>Email:</strong> ${email}</p>`
+    : "";
+  popupContent += phone
+    ? `
+      <p><strong>Teléfono:</strong> ${phone}</p>`
+    : "";
+  popupContent += description
+    ? `
+      <p><strong>Descripción:</strong> ${description}</p>`
+    : "";
+  popupContent += `
+      <p><strong>Redes sociales:</strong></p>
+      <ul>`;
+  popupContent += facebook
+    ? `<li><a href="https://www.facebook.com/${facebook}" target="_blank">Facebook</a></li>`
+    : ``;
+  popupContent += linkedin
+    ? `<li><a href="${linkedin}" target="_blank">LinkedIn</a></li>`
+    : "";
+  popupContent += twitter
+    ? `<li><a href="https://x.com/' + ${twitter}'" target="_blank">Twitter</a></li>`
+    : "";
+  popupContent += instagram
+    ? `<li><a href="${instagram}" target="_blank">Instagram @${instagram}</a></li>`
+    : "";
+  popupContent += website
+    ? `<p><strong>Sitio Web:</strong> <a href="${website}" target="_blank">${website}</a></p>`
+    : "";
+  popupContent += `
       </ul>
-      <p><strong>Sitio Web:</strong> <a href="${website}" target="_blank">${website}</a></p>
       <p><strong>¿Tiene WhatsApp?:</strong> ${hasWhatsapp ? "Sí" : "No"}</p>
       <p><strong>Envío a todos los países:</strong> ${
         hasShippingAllCountry ? "Sí" : "No"
