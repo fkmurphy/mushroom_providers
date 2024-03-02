@@ -119,13 +119,13 @@ function getMarker(data, map) {
     icon: svgIcon,
   }).bindPopup(popupContent);
   marker.bindTooltip(`${name}`);
-  marker.on("click", () =>  {
+  marker.on("click", () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      'event' : 'click',
-      'marker' : name
+      event: "click",
+      marker: name,
     });
-  })
+  });
   //marker.bindTooltip(popupContent);
   //marker.on("mouseover", function (e) {
   //  console.log("is open", marker.isPopupOpen());
