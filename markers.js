@@ -35,7 +35,7 @@ function categoriesCapitalize(categories) {
   return parsedCategories.join(", ");
 }
 
-const filters = {
+const FILTERS_FN = {
   hasPhysicalShop: filterPhysicalShop,
   hasShippingAllCountry: filterShippingAllCountry,
   contactByWhatsapp: filterContactByWhatsapp,
@@ -161,7 +161,7 @@ function getMarker(data, map) {
 function changeFilter(filterElement) {
   if (filterElement.checked && !appliedFilters.includes(filterElement.id)) {
     appliedFilters.push(filterElement.id);
-    currentData = filters[filterElement.id](currentData);
+    currentData = FILTERS_FN[filterElement.id](currentData);
   } else if (
     !filterElement.checked &&
     appliedFilters.includes(filterElement.id)
@@ -171,7 +171,7 @@ function changeFilter(filterElement) {
     let newData = fetchedData;
     if (appliedFilters.length > 0) {
       appliedFilters.forEach((filterKey) => {
-        newData = filters[filterKey](newData);
+        newData = FILTERS_FN[filterKey](newData);
       });
     }
     currentData = newData;
@@ -183,8 +183,8 @@ function changeFilter(filterElement) {
  * execute once, add filter list and event listener
  */
 
-function addFilters(map) {
-  var filters = Object.keys(filters).reduce(
+function dadFilters(map) {
+  var filters = Object.keys(FILTERS_FN).reduce(
     (acc, key) => ({ ...acc, [filterTranslate[key]]: key }),
     {},
   );
