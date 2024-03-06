@@ -29,7 +29,7 @@ function categoriesCapitalize(categories) {
   const splitted = categories.split(",");
   const parsedCategories = splitted.map((category) => {
     const trimmed = category.trim();
-    return trimmed.chartAt(0).toUpperCase() + trimmed.slice(1);
+    return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
   });
 
   return parsedCategories.join(", ");
