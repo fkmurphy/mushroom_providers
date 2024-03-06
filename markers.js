@@ -103,11 +103,13 @@ function getMarker(data, map) {
     ? `<p><strong>Sitio Web:</strong> <a href="${website}" target="_blank">${website}</a></p>`
     : "";
   popupContent += `
-      <p><strong>¿Tiene WhatsApp?:</strong> ${hasWhatsapp ? "Sí" : "No"}</p>
-      <p><strong>Envío a todos los países:</strong> ${
+      <p><strong>${filterTranslate["contactByWhatsapp"]}:</strong> ${
+        hasWhatsapp ? "Sí" : "No"
+      }</p>
+      <p><strong>${filterTranslate["hasShippingAllCountry"]}:</strong> ${
         hasShippingAllCountry ? "Sí" : "No"
       }</p>
-      <p><strong>Tiene Tienda Física:</strong> ${
+      <p><strong>${filterTranslate["hasPhysicalShop"]}:</strong> ${
         hasPhysicalShop ? "Sí" : "No"
       }</p>
       <p><strong>Palabras relacionadas:</strong> ${categories}</p>
@@ -170,7 +172,7 @@ function changeFilter(filterElement) {
  */
 
 function addFilters(map) {
-  var filtros = Object.keys(filters).reduce(
+  var filters = Object.keys(filters).reduce(
     (acc, key) => ({ ...acc, [filterTranslate[key]]: key }),
     {},
   );
@@ -182,8 +184,8 @@ function addFilters(map) {
         "leaflet-control-layers filter-control",
       );
       div.innerHTML += `<p><strong>Filtros</strong></p>`;
-      for (var filtro in filtros) {
-        var checkbox = `<label style="margin:4px;" for="${filtros[filtro]}"><input type="checkbox" id="${filtros[filtro]}">${filtro}</label>`;
+      for (var filter in filters) {
+        var checkbox = `<label style="margin:4px;" for="${filters[filter]}"><input type="checkbox" id="${filters[filter]}">${filter}</label>`;
         div.innerHTML += checkbox;
       }
       return div;
