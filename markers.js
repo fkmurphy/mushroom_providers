@@ -27,10 +27,12 @@ function filterContactByWhatsapp(data) {
 
 function categoriesCapitalize(categories) {
   const splitted = categories.split(",");
-  return splitted.map((category) => {
+  const parsedCategories = splitted.map((category) => {
     const trimmed = category.trim();
     return trimmed.chartAt(0).toUpperCase() + trimmed.slice(1);
   });
+
+  return parsedCategories.join(", ");
 }
 
 const filters = {
