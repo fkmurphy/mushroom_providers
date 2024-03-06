@@ -25,6 +25,14 @@ function filterContactByWhatsapp(data) {
   return data.filter((item) => item.whatsapp === true);
 }
 
+function categoriesCapitalize(categories) {
+  const splitted = categories.split(",");
+  return splitted.map((category) => {
+    const trimmed = category.trim();
+    return trimmed.chartAt(0).toUpperCase() + trimmed.slice(1);
+  });
+}
+
 const filters = {
   hasPhysicalShop: filterPhysicalShop,
   hasShippingAllCountry: filterShippingAllCountry,
@@ -112,7 +120,9 @@ function getMarker(data, map) {
       <p><strong>${filterTranslate["hasPhysicalShop"]}:</strong> ${
         hasPhysicalShop ? "Sí" : "No"
       }</p>
-      <p><strong>Palabras relacionadas:</strong> ${categories}</p>
+      <p><strong>Palabras relacionadas:</strong> ${categoriesCapitalize(
+        categories,
+      )}</p>
     </div>
   `;
 
