@@ -183,7 +183,7 @@ function changeFilter(filterElement) {
  * execute once, add filter list and event listener
  */
 
-function dadFilters(map) {
+function addFilters(map) {
   var filters = Object.keys(FILTERS_FN).reduce(
     (acc, key) => ({ ...acc, [filterTranslate[key]]: key }),
     {},
