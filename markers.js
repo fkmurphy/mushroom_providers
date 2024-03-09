@@ -103,7 +103,7 @@ function getMarker(data, map) {
     ? `<li><a href="https://x.com/${twitter}" target="_blank">Twitter</a></li>`
     : "";
   popupContent += youtube
-    ? `<li><a href="https://youtube.com/' + ${youtube}'" target="_blank">Canal de Youtube</a></li>`
+    ? `<li><a href="https://youtube.com/${youtube}" target="_blank">Canal de Youtube</a></li>`
     : "";
   popupContent += instagram
     ? `<li><a href="https://instagram.com/${instagram}" target="_blank">Instagram @${instagram}</a></li></ul>`
